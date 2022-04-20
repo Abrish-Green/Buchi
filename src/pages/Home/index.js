@@ -20,6 +20,7 @@ import dogImg from '../../assets/images/dog_img.jpg'
 import catImg from '../../assets/images/cat_img.png'
 import birdImg from '../../assets/images/bird_img.jpg'
 
+import { useNavigate } from 'react-router-dom'
 
 const cardData = [
   {
@@ -40,7 +41,6 @@ const cardData = [
   }
 ]
 
-
 const NavBar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -59,11 +59,6 @@ const NavBar = () => {
               <h1 style={headerStyle} >Buchi</h1>
           </Typography>
       </Toolbar>
-      
-      
-        
-      
-      
       </AppBar>
     </Box>
   );
@@ -86,8 +81,7 @@ const InfoPaper = (props) =>{
       
       elevation={0}
       >
-          <Card 
-          >
+          <Card>
           <CardActionArea >
             <CardMedia
               component="img"
@@ -131,6 +125,11 @@ const headerStyle = {
 }
 
 const Index = () => {
+
+    var navigate = useNavigate();
+    const handleSubmit = ()=>{
+        navigate('/pet')
+    }
     return (
         <div className="App-home">
             <NavBar />
@@ -145,7 +144,7 @@ const Index = () => {
           <Grid container>
               
               <Grid item xs={12} sx={{ mt: 4 }} container justifyContent="center" alignItems="center" >
-                 <ColorButton variant="contained"><SearchIcon /> Look for Pet </ColorButton>
+                 <ColorButton variant="contained" onClick={handleSubmit}><SearchIcon /> Look for Pet </ColorButton>
               </Grid>
              
           </Grid>

@@ -5,7 +5,8 @@ import {
 } from "react-router-dom";
 
 
-import Home from './pages/Home/index'
+import Home from './pages/Home'
+import Pet from './pages/Pets'
 
 const App =  ()=>{
   return(
@@ -13,7 +14,7 @@ const App =  ()=>{
       <BrowserRouter>
         <Routes>
         <Route path="/" element={<Home />} />
-            <Route path="/pet" element={<Home />}>
+            <Route path="/pet" element={<Pet />}>
               <Route path=":petId" element={<Home />} />
             </Route>
         </Routes>
