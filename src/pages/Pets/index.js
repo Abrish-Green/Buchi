@@ -8,6 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Button, Grid, Paper } from '@mui/material';
 
 import SearchIcon from '@mui/icons-material/Search';
+import PetList from './PetList'
 
 import { MultipleSelects, GoodWithChildren, SwitchForApiCheckToggler } from './Selects'
 import { Link } from 'react-router-dom';
@@ -44,18 +45,12 @@ const NavBar = () => {
   );
 }
 
-
 const MultipleSelectMenu =[
      ["cat", "dog"],
      ["baby", "young", "adult", "senior"],
      ["male", "female"],
      ["small", " medium", "large", "xlarge"]
 ]
-
-
-
-
-
 
 
 
@@ -109,17 +104,11 @@ const Index = () => {
           
       </Grid>
           
-          </Paper>
-          <Box
-                sx={{
-                width: '100%',
-                height: '100vh',
-                backgroundColor: '#FFF8DC',
+            </Paper>
+          <Box sx={{ mt: 2, width: '100%',backgroundColor: '#FFF8DC',}}>
+                <PetList/>
                 
-                }}
-          >
-                
-          
+    
           </Box>
         </div>
     );
