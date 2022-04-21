@@ -7,6 +7,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button, Grid, Paper } from '@mui/material';
 
+import SearchIcon from '@mui/icons-material/Search';
+
 import { MultipleSelects, GoodWithChildren, SwitchForApiCheckToggler } from './Selects'
 import { Link } from 'react-router-dom';
 
@@ -94,12 +96,12 @@ const Index = () => {
             <MultipleSelects data={MultipleSelectMenu[3]} title="Size" />
            </Grid>
            <Grid container item xs={12} sm={12} md={12}>
-                <Grid xs={6} md={9}>
-                    <Button sx={{ bgcolor: '#D2691E',float: 'right' }} variant="contained" size="large">
-                        Find
+                <Grid xs={6} md={9.5}>
+                    <Button sx={{ bgcolor: '#D2691E',float: 'right' }} variant="contained" size="large" startIcon={<SearchIcon />}>
+                        Look
                     </Button>
                 </Grid>
-                <Grid item xs={6} md={3} sx={{ float: 'right' }}>
+                <Grid item xs={6} md={2.5} sx={{ float: 'right' }}>
                     <SwitchForApiCheckToggler />
 
                 </Grid>
