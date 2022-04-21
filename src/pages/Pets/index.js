@@ -7,7 +7,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button, Grid, Paper } from '@mui/material';
 
-import { SelectAnimalType, GoodWithChildren } from './Selects'
+import { MultipleSelects, GoodWithChildren, SwitchForApiCheckToggler } from './Selects'
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const headerStyle = {
@@ -33,8 +34,8 @@ const NavBar = () => {
           <MenuIcon />
         </IconButton> 
         <Typography variant="h6" color="inherit" component="div">
-              <h1 style={headerStyle} >Buchi</h1>
-          </Typography>
+                <Link to="/" href=""style={headerStyle} >Buchi</Link>
+        </Typography>
       </Toolbar>
       </AppBar>
     </Box>
@@ -42,7 +43,12 @@ const NavBar = () => {
 }
 
 
-
+const MultipleSelectMenu =[
+     ["cat", "dog"],
+     ["baby", "young", "adult", "senior"],
+     ["male", "female"],
+     ["small", " medium", "large", "xlarge"]
+]
 
 
 
@@ -55,35 +61,50 @@ const Index = () => {
     return (
         <div className="App-pet" sx={{ backgroundColor: '#fee' }}>
             <NavBar />
+    
             <Paper
                 sx={{
-                height: '15vh',
+                height: {
+                    xs: '75vh',
+                    sm: '50vh',
+                    md: '30vh',
+                    lg: '25vh'
+                },
                 width: '100%',
+                    
                 backgroundColor: '#fff',
                 border: '2px solid #D2691E',
                 }}
                 elevation={8}
           >
           <Grid container>
-          <Grid item  xs={12} sm={6} md={4} >
-              <SelectAnimalType />
+          <Grid item xs={12} sm={5} md={1.6}>
+              <MultipleSelects data={MultipleSelectMenu[0]} title="Animal Type" />
           </Grid>
-          <Grid item  xs={12} sm={6} md={4} >
-              <GoodWithChildren />
+          <Grid item xs={12} sm={5} md={1.7}>
+              <GoodWithChildren/>
           </Grid>
-          <Grid item sx={2}>
-              X
+          <Grid item xs={12} sm={7} md={3.2}>
+              <MultipleSelects data={MultipleSelectMenu[1]} title="Age" />
           </Grid>
-          <Grid item sx={2}>
-              X
+          <Grid item xs={12} sm={5} md={2}>
+              <MultipleSelects data={MultipleSelectMenu[2]} title="Gender"/>
           </Grid>
-      <Grid item sx={2}>
-              X
-          </Grid>
-          <Grid item sx={2}>
-              X
-          </Grid>
-      
+          <Grid item xs={12} sm={12} md={3.3}>
+            <MultipleSelects data={MultipleSelectMenu[3]} title="Size" />
+           </Grid>
+           <Grid container item xs={12} sm={12} md={12}>
+                <Grid xs={6} md={9}>
+                    <Button sx={{ bgcolor: '#D2691E',float: 'right' }} variant="contained" size="large">
+                        Find
+                    </Button>
+                </Grid>
+                <Grid item xs={6} md={3} sx={{ float: 'right' }}>
+                    <SwitchForApiCheckToggler />
+
+                </Grid>
+           </Grid>
+          
       </Grid>
           
           </Paper>

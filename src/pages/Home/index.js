@@ -15,6 +15,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
+import { Link } from 'react-router-dom'
 
 import dogImg from '../../assets/images/dog_img.jpg'
 import catImg from '../../assets/images/cat_img.png'
@@ -42,13 +43,22 @@ const cardData = [
 ]
 
 const NavBar = () => {
+  
+const headerStyle = {
+                marginLeft: '16px',
+                fontSize: '40px',
+                fontWeight: '600',
+                color: '#F4A460',
+                backgroundClip: 'text',
+                textDecoration: 'none'
+}
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ bgcolor: 'transparent' ,margin:0, padding:0, height: '15vh'}}>
       <Toolbar>
             <IconButton
             size="large"
-            aria-label="account of current user"
+            aria-label="Menuicon"
             aria-haspopup="true"
             color="inherit"
             sx={{ color: '#001', display:{ xs: 'block',sm: 'none'} }}
@@ -56,7 +66,7 @@ const NavBar = () => {
           <MenuIcon />
         </IconButton> 
         <Typography variant="h6" color="inherit" component="div">
-              <h1 style={headerStyle} >Buchi</h1>
+              <Link to="/" href=""style={headerStyle} >Buchi</Link>
           </Typography>
       </Toolbar>
       </AppBar>
@@ -115,14 +125,6 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const headerStyle = {
-                marginLeft: '16px',
-                fontSize: '40px',
-                fontWeight: '600',
-                backgroundImage: 'linear-gradient(to left, #FFF8DC	, #F4A460)',
-                color: 'transparent',
-                backgroundClip: 'text',
-}
 
 const Index = () => {
 
