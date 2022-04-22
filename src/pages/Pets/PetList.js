@@ -14,7 +14,6 @@ import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import { Card, CardMedia } from '@mui/material';
 import { Link } from 'react-router-dom';
-import LinearProgress from '@mui/material/LinearProgress';
 
 const Pet = ({ data }) => {
 
@@ -43,7 +42,7 @@ const Pet = ({ data }) => {
           <img
             style={{  height: '70%', width: '100%' }}
             src={photos.url}
-            alt="Image"
+            alt="Loading"
           />
           </Link>
         <Box>

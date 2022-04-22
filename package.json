@@ -11,8 +11,12 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.5.0",
+    "mui-image-slider": "^1.0.7",
+    "nuka-carousel": "^5.0.13",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-gallery-carousel": "^0.2.9",
+    "react-material-ui-carousel": "^3.3.3",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
@@ -41,7 +45,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://209.97.133.58:8000/"
-
+  }
 }
