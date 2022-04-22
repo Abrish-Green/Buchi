@@ -12,6 +12,7 @@ import PetList from './PetList'
 
 import { MultipleSelects, GoodWithChildren, SwitchForApiCheckToggler } from './Selects'
 import { Link } from 'react-router-dom';
+import LinearProgress from '@mui/material/LinearProgress';
 
 const NavBar = () => {
     const headerStyle = {
@@ -56,7 +57,7 @@ const MultipleSelectMenu =[
 
 const Index = () => {
     return (
-        <div className="App-pet" sx={{ backgroundColor: '#fee' }}>
+        <div className="App-pet" sx={{backgroundColor: '#fee' }}>
             <NavBar />
     
             <Paper
@@ -105,7 +106,9 @@ const Index = () => {
       </Grid>
           
             </Paper>
-          <Box sx={{ mt: 2, width: '100%',backgroundColor: '#FFF8DC',}}>
+          <Box minHeight={380} sx={{ mt: 2, width: '100%',backgroundColor: '#FFF8DC'}}>
+                <LinearProgress />
+
                 <PetList/>
                 
     
