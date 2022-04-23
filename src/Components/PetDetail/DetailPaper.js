@@ -26,7 +26,7 @@ const PetDetailPaper = ({data}) => {
                      <Grid xs={7}>
                      <IconButton sx={{ float:'right' }} color="primary" aria-label="Adopt pet">
                         <FavoriteBorderIcon />
-                           Adopt
+                           Adopt Me
                      </IconButton></Grid>
 
                      

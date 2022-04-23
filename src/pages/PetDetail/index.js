@@ -1,5 +1,6 @@
 import React from 'react'
 import PetDetailPaper from '../../Components/PetDetail/DetailPaper';
+import AddCustomer from '../../Components/PetDetail/AddCustomer'
 
 const testData = {
   "pet_id": 123,
@@ -19,6 +20,7 @@ const Index = () => {
   return (
     <div className="App-Pet-Detail">
         <PetDetailPaper data={testData} />
+        <AddCustomer popup={true} />
     </div>
   )
 }
