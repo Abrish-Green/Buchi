@@ -25,7 +25,7 @@ const MultipleImage = () =>{
       </Carousel>
     )
 }
-const ImageSlider = ({photos}) => {
+const ImageViewer = ({photos}) => {
     return (
         <React.Fragment>
         {
@@ -40,4 +40,4 @@ const ImageSlider = ({photos}) => {
   
 }
 
-export default ImageSlider
+export default ImageViewer

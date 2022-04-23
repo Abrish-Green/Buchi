@@ -25,7 +25,7 @@ const Pet = ({ data }) => {
          <LoadingCard />
          :
          <Paper  
-           sx={{ ml: { xs: 6, sm: 3, md: 4, lg: 7}, height: {xs: '55vh'}, width: {xs : '70%', sm: '40%', md: '27%', lg: '25%' } }}
+           sx={{ ml: { xs: 4, sm: 12, md: 2}, height: {xs: '70vh',sm:'80vh', md: '80vh',}, width: {xs : '85%', sm: '70%', md: '45%',lg:'30%' } }}
            elevation={4}> 
            <Link to={detailLink}>
            <img

@@ -14,8 +14,8 @@ export default function AnimalDescriptorChips({data}) {
   return (
     <React.Fragment>
         <Chip sx={{ m:.5 }} color="primary" icon={<PetsIcon />} label={type} variant="outlined" />
-        <Chip sx={{ m:.5 }} color="primary" icon={good_with_children ? <SentimentSatisfiedAltIcon /> : <SentimentVeryDissatisfiedIcon />} label="Good With Children" variant="outlined" />
-        <Chip sx={{ m:.5 }} color="primary" icon={gender === "male" ? <MaleIcon /> : <FemaleIcon />} label={gender} variant="outlined" />
+        <Chip sx={{ m:.5 }} color={good_with_children ? 'success': 'error'} icon={good_with_children ? <SentimentSatisfiedAltIcon /> : <SentimentVeryDissatisfiedIcon />} label={good_with_children ? 'Good With Children' : 'Bad With Children'} variant="outlined" />
+        <Chip sx={{ m:.5 }} color={gender == 'female'? 'secondary': 'primary'} icon={gender === "male" ? <MaleIcon /> : <FemaleIcon />} label={gender} variant="outlined" />
         <Chip sx={{ m:.5 }} color="primary" icon={<AccessTimeIcon />} label={age} variant="outlined" />
         <Chip sx={{ m:.5 }} color="primary" icon={<AddIcon />} label={size} variant="outlined" />
     

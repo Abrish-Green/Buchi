@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Pet from './Pet';
+import Pet from './Pet'
 import { NotFound } from './NotFound';
 
 const PetList = ({pets}) => {
