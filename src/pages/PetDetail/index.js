@@ -20,7 +20,7 @@ const Index = () => {
   return (
     <div className="App-Pet-Detail">
         <PetDetailPaper data={testData} />
-        <AddCustomer popup={true} />
+        
     </div>
   )
 }
