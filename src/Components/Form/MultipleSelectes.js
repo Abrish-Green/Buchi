@@ -7,6 +7,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
+import { connect } from 'react-redux'
+
+
+//Actions 
+import { filterAge, filterAnimalType, filterGender, filterSize } from '../../Services/Actions/filter'
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -29,10 +35,10 @@ function getStyles(name, AnimalName, theme) {
   };
 }
 
-export default function MultipleSelects({data,title}) {
+const MultipleSelects = ({data,title, filterAnimalType, filterAge, filterGender, filterSize}) => {
   const theme = useTheme();
   const [customInput, setCustomInput] = React.useState([]);
-
+  const [selects, setSelects] = React.useState([])
   const handleChange = (event) => {
     const {
       target: { value },
@@ -40,8 +46,22 @@ export default function MultipleSelects({data,title}) {
     setCustomInput(
       typeof value === 'string' ? value.split(',') : value,
     );
+
+    if(title === "Animal Type"){
+      filterAnimalType(value)
+    }
+    if(title === "Age"){
+      filterAge(value)
+    }
+    if(title === "Gender"){
+      filterGender(value)
+    }
+    if(title === "Size"){
+      filterSize(value)
+    }
   };
 
+ 
   return (
     <div>
       <FormControl sx={{ m: 1, width: '80%' }}>
@@ -77,4 +97,8 @@ export default function MultipleSelects({data,title}) {
     </div>
   );
 }
+
+
+
+export default connect(null, { filterAnimalType, filterAge, filterGender, filterSize})(MultipleSelects) 
 

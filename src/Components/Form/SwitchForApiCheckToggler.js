@@ -3,9 +3,21 @@ import { styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import { connect } from 'react-redux'
+import { filterPetFinderAPI } from '../../Services/Actions/filter'
 
-const IOSSwitch = styled((props) => (
-    <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+
+const SwitchForApiCheckToggler = ({ filterPetFinderAPI }) => {
+
+  const [checked, setChecked] = React.useState(true);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+    filterPetFinderAPI(checked)
+  };
+  const IOSSwitch = styled((props) => (
+    
+    <Switch  focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
   ))(({ theme }) => ({
     width: 42,
     height: 26,
@@ -54,14 +66,17 @@ const IOSSwitch = styled((props) => (
       }),
     },
   }));
-  
-  export default function SwitchForApiCheckToggler() {
+
+
+ 
     return (
       <FormGroup>
         <FormControlLabel sx={{ m: 1 }}
-          control={<IOSSwitch sx={{ ml: 1 }} defaultChecked />}
+          control={<IOSSwitch checked={checked} onChange={handleChange}  sx={{ ml: 1 }} defaultChecked />}
           label="Include from Petfinder"
         />
       </FormGroup>
     );
   }
+
+  export default connect(null, { filterPetFinderAPI })(SwitchForApiCheckToggler)

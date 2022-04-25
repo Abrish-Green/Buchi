@@ -10,8 +10,8 @@ const PetList = ({pets}) => {
         <Grid item xs={12}>
             <Box sx={{p: 2,display: 'flex', flexWrap: 'wrap',gap: 2}}>
                 { pets && 
-                  pets.map((pet)=>{
-                      return <Pet data={pet}/>
+                  pets.map((pet,index)=>{
+                      return <Pet key={index} data={pet}/>
                   })
                 }
                {

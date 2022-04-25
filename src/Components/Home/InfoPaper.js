@@ -5,12 +5,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
-
-
-
-
+import { useNavigate } from 'react-router-dom'
 
 const InfoPaper = (props) =>{
+
+  const navigate = useNavigate()
   return(
       <Paper 
 
@@ -28,7 +27,7 @@ const InfoPaper = (props) =>{
       elevation={0}
       >
           <Card>
-          <CardActionArea >
+          <CardActionArea onClick={()=>{navigate('/pet')}}>
             <CardMedia
               component="img"
               image={props.img}

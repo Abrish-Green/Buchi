@@ -48,9 +48,7 @@ const Index = () => {
           <FilterBar />
           <Box minHeight={380} sx={{ mt: 2, width: '100%',backgroundColor: '#FFF8DC'}}>
                 <LinearProgress />
-                <PetList pets={testData}/>
-
-                
+                <PetList pets={testData}/>    
           </Box>
         </div>
     );

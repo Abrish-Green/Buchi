@@ -1,6 +1,5 @@
 import React from 'react'
 import PetDetailPaper from '../../Components/PetDetail/DetailPaper';
-import AddCustomer from '../../Components/PetDetail/AddCustomer'
 
 const testData = {
   "pet_id": 123,
