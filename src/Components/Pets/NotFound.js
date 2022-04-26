@@ -7,7 +7,7 @@ export function NotFound (){
           elevation={4}
         >
         <Typography variant="h3" gutterBottom component="div" sx={{ ml: { xs: 1, sm: 5, lg: 15}, p: 5, color: '#c02537', fontSize:{ xs: '34px', sm: '45px', lg: '50px'} }}>
-            Not Found !
+            Look for Pet
         </Typography>
         
         </Paper>

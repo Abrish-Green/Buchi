@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import  app  from './app'
+import  pets  from './pets'
 import filter from './filter'
 export default combineReducers({
-    app: app, 
+    pets: pets, 
     filter: filter
 })

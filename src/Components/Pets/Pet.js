@@ -14,10 +14,26 @@ const LoadingCard = () => (
       
 const Pet = ({ data }) => {
 
-    const { pet_id, photos } = data;
-    const loading = false
+    let photos = "";
+    let loading = false
+
+    if(data.photos != null){
+      if(data.photos.length > 1)  {
+        photos = data.photos[0].url
+      }else{
+        photos = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
+        loading = false
+      }
+     
+    }else{
+      photos = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
+      loading = false
+    
+    }
+    
+    
    
-    const detailLink = `/pet/${pet_id}`
+    const detailLink = `/pet/${data.pet_id}`
     return(
       <React.Fragment>
        {(loading) ?
@@ -30,7 +46,7 @@ const Pet = ({ data }) => {
            <Link to={detailLink}>
            <img
              style={{  height: '70%', width: '100%' }}
-             src={photos.url}
+             src={photos}
              alt="Loading"
            />
            </Link>

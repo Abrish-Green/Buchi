@@ -10,6 +10,7 @@ import Pet from './pages/Pets'
 import PetDetail from './pages/PetDetail'
 import NavBar from "./Components/Navbar";
 
+
 const App =  ()=>{
   return(
     <div className="App">
@@ -17,7 +18,7 @@ const App =  ()=>{
       <BrowserRouter>
        <NavBar />
         <Routes>
-        
+  
             <Route path="/" element={<Home />} />
             <Route path="/pet" element={<Pet />} />
             <Route path="/pet/:petId" element={<PetDetail />} />

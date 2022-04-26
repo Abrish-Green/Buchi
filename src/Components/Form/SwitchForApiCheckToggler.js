@@ -72,7 +72,7 @@ const SwitchForApiCheckToggler = ({ filterPetFinderAPI }) => {
     return (
       <FormGroup>
         <FormControlLabel sx={{ m: 1 }}
-          control={<IOSSwitch checked={checked} onChange={handleChange}  sx={{ ml: 1 }} defaultChecked />}
+          control={<IOSSwitch checked={checked} onChange={handleChange}  sx={{ ml: 1 }}/>}
           label="Include from Petfinder"
         />
       </FormGroup>

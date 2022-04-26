@@ -25,6 +25,7 @@ const  GoodWithChildren = ({ filterGoodWithChildren }) => {
           onChange={handleChange}
           label="Good With Child"
         >
+          <MenuItem>--Select--</MenuItem>
           <MenuItem value={true}>Yes</MenuItem>
           <MenuItem value={false}>No</MenuItem>
         </Select>

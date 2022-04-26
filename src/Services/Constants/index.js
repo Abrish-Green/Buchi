@@ -1,8 +1,7 @@
 export const SELECT_ANIMAL_TYPE = 'SELECT_ANIMAL_TYPE'
-
-
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-export const LOGIN_FAIL = 'LOGIN_FAIL'
-export const LOGOUT = 'LOGOUT'
-export const GET_AUTH_USER = 'GET_AUTH_USER'
-export const SIGN_UP = 'SIGN_UP'
+export const SELECT_IS_GOOD_WITH_CHILDREN = 'SELECT_IS_GOOD_WITH_CHILDREN'
+export const SELECT_AGE = 'SELECT_AGE'
+export const SELECT_GENDER = 'SELECT_GENDER'
+export const SELECT_SIZE = 'SELECT_SIZE'
+export const SELECT_PETFINDER_API = 'SELECT_PETFINDER_API'
+export const LOAD_PETS = 'LOAD_PETS'

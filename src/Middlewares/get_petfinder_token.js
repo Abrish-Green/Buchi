@@ -1,8 +1,7 @@
-const axios = require('axios');
-const dotenv = require('dotenv').config({ path: '../../.env' })
+import axios from 'axios';
+import config from '../Config/config.json'
 
-
-const getPetFinderToken =  async() =>  {
+export const getPetFinderToken =  async() =>  {
 
      try{
         const token = await axios({
@@ -10,8 +9,8 @@ const getPetFinderToken =  async() =>  {
             url: 'https://api.petfinder.com/v2/oauth2/token',
             data: {
                 grant_type: "client_credentials",
-                client_id: process.env.PET_FINDER_CLIENT_ID,
-                client_secret:process.env.PET_FINDER_SECRET
+                client_id: config.PET_FINDER_CLIENT_ID,
+                client_secret: config.PET_FINDER_SECRET
 
             }
           }).then(({data})=> data).catch(e => {return e.message});
@@ -21,11 +20,10 @@ const getPetFinderToken =  async() =>  {
     }
 
 }
-
-module.exports =  getPetFinderToken
+/*
 let token = getPetFinderToken()
 getPetFinderToken().then(function(result) {
      token = (result.access_token) 
      console.log(token)// "Some User token"
  });
- 
+*/

@@ -1,25 +1,70 @@
-import { SELECT_ANIMAL_TYPE } from '../Constants'
+import { SELECT_ANIMAL_TYPE, SELECT_AGE, SELECT_GENDER, SELECT_IS_GOOD_WITH_CHILDREN, SELECT_SIZE, SELECT_PETFINDER_API, LOAD_PETS } from '../Constants'
+import { FetchFromLocalDb, FetchFromPetFinderAPI } from '../Utils/FetchData'
 
 export const filterAnimalType = (data) => dispatch => {
-    console.log("Animal Type", data)
+    
+    dispatch({
+        type: SELECT_ANIMAL_TYPE,
+        payload:  {
+            type: data,
+            },
+    })
 }
-
 export const filterGoodWithChildren = (data) => dispatch => {
-    console.log("Good With Children", data)
+    dispatch({
+        type: SELECT_IS_GOOD_WITH_CHILDREN,
+        payload: {
+            good_with_children: data,
+        },
+    })
 }
-
 export const filterAge = (data) => dispatch => {
-    console.log("Age", data)
+    dispatch({
+        type: SELECT_AGE,
+        payload: {
+            age: data
+        },
+    })
 }
-
 export const filterGender = (data) => dispatch => {
-    console.log("Gender", data)
+    dispatch({
+        type: SELECT_GENDER,
+        payload: {
+            gender: data
+        },
+    })
 }
-
 export const filterSize = (data) => dispatch => {
-    console.log("Size", DataTransfer)
+    dispatch({
+        type: SELECT_SIZE,
+        payload: {
+            size:data
+        },
+    })
 }
 export const filterPetFinderAPI = (data) => dispatch => {
-    console.log("Pet Finder API", data)
+    dispatch({
+        type: SELECT_PETFINDER_API,
+        payload: {
+                include_petApiFilter:data
+        },
+    })
+}
+
+export const loadPets = (type, good_with_children, age, gender, size,from_petFinderApi) => dispatch => {
+    let pet = []
+    if(from_petFinderApi){
+        FetchFromPetFinderAPI(type, good_with_children, age, gender, size).then((res)=> {
+            pet = [...res.animals] 
+        })
+    }
+        FetchFromLocalDb(type, good_with_children, age, gender, size ).then((res)=> {
+            pet = [...pet,...res.pets]
+            dispatch({
+                type:LOAD_PETS,
+                payload: pet
+            })
+        })
+        
 }
 
