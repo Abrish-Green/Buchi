@@ -20,10 +20,3 @@ export const getPetFinderToken =  async() =>  {
     }
 
 }
-/*
-let token = getPetFinderToken()
-getPetFinderToken().then(function(result) {
-     token = (result.access_token) 
-     console.log(token)// "Some User token"
- });
-*/
