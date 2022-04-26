@@ -5,8 +5,9 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Grid, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
-
-
+import { connect } from 'react-redux'
+import {Adopt} from '../../Services/Actions/adopt'
+import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 const Congratulation = () => {
     return(
         <Grid container>
@@ -47,25 +48,39 @@ const style = {
   p: 4,
 };
 
-const AddCustomer = ({popup}) => {
-  const [open, setOpen] = React.useState(popup);
+const AddCustomer = (props) => {
+  const [open, setOpen] = React.useState(props.popup);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [complete, setComplete] = React.useState(false)
+  const [sending, setSending] = React.useState(false)
+  const [name, setName] = React.useState('')
+  const [phone, setPhone] = React.useState('')
+  
 
+  
+  const handleSubmit = () => {
+    Adopt(name,phone,props.pet_id)
+    setComplete(true)
+    
+    
+  }
   return (
     <div>
     
       <Modal
-        open={popup}
+        open={props.popup}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         disableEnforceFocus 
       >
         <Box sx={style}>
-
+              {
+                sending &&  <HourglassEmptyIcon />
+              }
             {
-                true ? 
+              complete ? 
                 <Congratulation />
                 :
                 <Grid container>
@@ -87,6 +102,8 @@ const AddCustomer = ({popup}) => {
                         placeholder="Name"
                         variant="standard"
                         fullWidth 
+                        value={name}
+                        onChange={(e)=>setName(e.target.value)}
                   />
                     </Grid>
                     <Grid item xs={12} md={8}>
@@ -96,12 +113,14 @@ const AddCustomer = ({popup}) => {
                         label="Phone"
                         placeholder="+251"
                         variant="standard"
-                        fullWidth 
+                        fullWidth
+                        value={phone}
+                        onChange={(e)=>setPhone(e.target.value)} 
                   />
                     </Grid>
                 </Grid>
                 <Grid item xs={12} md={8} mt={4}>
-                <Button variant="contained" sx={{  bgcolor: '#FAA455', width: '35%' }}>
+                <Button onClick={handleSubmit} variant="contained" sx={{  bgcolor: '#FAA455', width: '35%' }}>
                     Send
                 </Button>
                 <Button onClick={()=>{handleClose()}} variant="contained" sx={{ ml: 2, bgcolor: ' #cf142b', width: '35%' }}>
@@ -118,4 +137,8 @@ const AddCustomer = ({popup}) => {
   );
 }
 
-export default AddCustomer
+const mapStateToProps = state => ({
+  adopt: state.adopt
+});
+
+export default connect(mapStateToProps, {Adopt})(AddCustomer)

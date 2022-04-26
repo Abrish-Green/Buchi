@@ -2,12 +2,12 @@ import React from 'react';
 import Carousel from 'nuka-carousel';
 import { Grid } from '@mui/material';
 
-const SingleImage = () =>{
+const SingleImage = ({url}) =>{
     return(
         <React.Fragment>
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid item xs={12} sm={10} md={8} lg={6} >
-                        <img style={{  height: '40vh', width: '100%' }} src="https://assets.imgix.net/unsplash/motorbike.jpg"  />
+                        <img style={{  height: '40vh', width: '100%' }} src={url}  />
                 </Grid>
             
             </Grid>
@@ -17,24 +17,31 @@ const SingleImage = () =>{
     )
 }
 
-const MultipleImage = () =>{
+const MultipleImage = ({photos}) =>{
     return(
         <Carousel>
-            <img style={{  height: '40vh', width: '100%' }} src="https://assets.imgix.net/unsplash/motorbike.jpg" />
-            <img style={{  height: '40vh', width: '100%' }} src="https://assets.imgix.net/unsplash/motorbike.jpg" />
+            {
+                photos && 
+
+                photos.map((photo)=>{
+                    return(<img style={{  height: '40vh', width: '100%' }} src={photo.url} />)
+
+                })
+            }
       </Carousel>
     )
 }
-const ImageViewer = ({photos}) => {
+const ImageViewer = (props) => {
     return (
         <React.Fragment>
-        {
-            photos.length == 1 ?
 
-            <SingleImage />
-            :
-            <MultipleImage />
-        }
+       
+
+    
+            { (typeof props.photos.url === 'string' ) && <SingleImage url={props.photos.url}/>}
+            
+            { (typeof props.photos.url === 'undefined' ) && <MultipleImage photos={props.photos} />}
+        
         </React.Fragment>
     );
   

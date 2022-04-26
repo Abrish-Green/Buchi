@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 
 const PetList = (props) => {
 
-  console.log("petlist", props.pets)
   return (
     <Grid container spacing={2}>
         <Grid item xs={12}>

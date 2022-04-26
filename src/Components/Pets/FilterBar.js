@@ -37,13 +37,17 @@ function FilterBar(props) {
         
 
     }, [props.filter])
+        const onload = () => {
+                        props.loadPets(type , good_with_children, age, gender, size,include_petApiFilter)
 
+        }
         const handleLook = () =>{
             props.loadPets(type , good_with_children, age, gender, size,include_petApiFilter)
 
         }
+        onload();
         return (
-    
+            
      <Paper
                 sx={{
                 height: {

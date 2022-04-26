@@ -10,8 +10,19 @@ import AddCustomer from './AddCustomer';
 
 
 const PetDetailPaper = ({data}) => {
-    const { pet_id, photos } = data;
     const [open, setOpen] = useState(false)
+
+    let photos = "";
+
+    if(data.photos != null){
+      if(data.photos.length > 0)  {
+        photos = data.photos
+      }
+    }else{
+      photos = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
+    
+    }
+    
     const handleModal = () => {
       setOpen(true)
     }
@@ -24,12 +35,14 @@ const PetDetailPaper = ({data}) => {
          
          <Grid container direction="row" justifyContent="space-evenly" alignItems="stretch">
              <Grid item xs={10} sx={{ height: '100vh',  width: '60%'}}>
-                   <ImageViewer photos={[1]}/>
+                   <ImageViewer photos={data.photos} />
+                   
+                   
                    <Box sx={{  m:{xs: 0, sm: 2, md: 5}, ml:{xs: 0, sm: 5, lg:15} }}>
                        <AnimalDescriptorChips data={data} />  
                    </Box>
-                   <Grid xs={12} justifyContent="center" alignItems="center">
-                     <Grid xs={7}>
+                   <Grid item xs={12} justifyContent="center" alignItems="center">
+                     <Grid item xs={7}>
                      <IconButton  sx={{ float:'right' }} color="primary" aria-label="Adopt pet" onClick={handleModal}>
                     
                      <FavoriteBorderIcon />
@@ -48,7 +61,7 @@ const PetDetailPaper = ({data}) => {
          </Grid>
        
      </Paper>
-     <AddCustomer popup={open} />
+     <AddCustomer popup={open} pet_id={data.pet_id} />
      </React.Fragment>
    )
 }
