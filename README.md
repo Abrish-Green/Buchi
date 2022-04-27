@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# BUCHI
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DEMO
+## Home
+![image](https://user-images.githubusercontent.com/69917052/165434594-d0db8a5d-9a5e-40c4-9fb4-f38c10b04d4b.png)
+## Find Pet
+![image](https://user-images.githubusercontent.com/69917052/165443791-acffe070-300d-4863-ad4e-459035e98afa.png)
+Note: Some Images from the api has an error so i replaced those effect images with a temporary image as show above
+## PET DETAIL
+![image](https://user-images.githubusercontent.com/69917052/165443943-74be719d-e329-4d50-bcb7-3486244df407.png)
+## ADD CUSTOMER
+![image](https://user-images.githubusercontent.com/69917052/165444105-0ed12a5c-6203-4529-a6f6-d0b4eab9626a.png)
+![image](https://user-images.githubusercontent.com/69917052/165444147-b942c004-64b6-48b4-9f38-582f30fc2884.png)
+
+## Responsive
+![image](https://user-images.githubusercontent.com/69917052/165444266-0efe06b9-741b-4860-a4b6-2f94fda1e687.png)
+![image](https://user-images.githubusercontent.com/69917052/165444817-eac053c7-789b-45a4-ab29-4ce6d329abe8.png)
+
+
 
 ## Available Scripts
 
