@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ![image](https://user-images.githubusercontent.com/69917052/165434594-d0db8a5d-9a5e-40c4-9fb4-f38c10b04d4b.png)
 ## Find Pet
 ![image](https://user-images.githubusercontent.com/69917052/165443791-acffe070-300d-4863-ad4e-459035e98afa.png)
-Note: Some Images from the api has an error so i replaced those effect images with a temporary image as show above
+Note: Some Images from the api has an error so i replaced those infected images with a temporary image as show above
 ## PET DETAIL
 ![image](https://user-images.githubusercontent.com/69917052/165443943-74be719d-e329-4d50-bcb7-3486244df407.png)
 ## ADD CUSTOMER
