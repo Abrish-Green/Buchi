@@ -38,9 +38,8 @@ const ImageViewer = (props) => {
        
 
     
-            { (typeof props.photos.url === 'string' ) && <SingleImage url={props.photos.url}/>}
+            {  (typeof props.photos.url === 'string' ) ?  <SingleImage url={props.photos.url}/> : <MultipleImage photos={props.photos}/> }
             
-            { (typeof props.photos.url === 'undefined' ) && <MultipleImage photos={props.photos} />}
         
         </React.Fragment>
     );

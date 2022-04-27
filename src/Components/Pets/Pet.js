@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import AnimalDescriptorChips from '../../Components/Pets/AnimalDescriptorChips'
 import Skeleton from '@mui/material/Skeleton';
 import { Link } from 'react-router-dom';
+import {connect } from 'react-redux'
+import { selectPet } from '../../Services/Actions/petDetail'
 
 const LoadingCard = () => (
       <React.Fragment>
@@ -12,25 +14,22 @@ const LoadingCard = () => (
       </React.Fragment>
     )
       
-const Pet = ({ data }) => {
+const Pet = ({ data , selectPet}) => {
 
     let photos = "";
     let loading = false
-
+    console.log(data.photos[0].url)
     if(data.photos != null){
-      if(data.photos.length > 1)  {
-        photos = data.photos[0].url
-      }else{
-        photos = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
-        loading = false
-      }
-     
+        photos = (typeof data.photos !== 'object') ? data.photos.url : data.photos[0].url 
     }else{
       photos = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
       loading = false
     
     }
     
+    const handleSelect = () => {
+      selectPet(data)
+    }
     
    
     const detailLink = `/pet/${data.pet_id}`
@@ -43,11 +42,16 @@ const Pet = ({ data }) => {
          <Paper  
            sx={{ ml: { xs: 4, sm: 12, md: 2}, height: {xs: '70vh',sm:'80vh', md: '80vh',}, width: {xs : '85%', sm: '70%', md: '45%',lg:'30%' } }}
            elevation={4}> 
-           <Link to={detailLink}>
+           <Link onClick={handleSelect} to={detailLink}>
            <img
              style={{  height: '70%', width: '100%' }}
              src={photos}
-             alt="Loading"
+             onError={(event) => {
+              event.target.onerror = "";
+              event.target.src = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
+              return true;
+           }}
+             alt="Image not Available"
            />
            </Link>
          <Box>
@@ -58,4 +62,4 @@ const Pet = ({ data }) => {
        </React.Fragment> 
        )
    }
- export default Pet;
+ export default connect(null, { selectPet })(Pet);

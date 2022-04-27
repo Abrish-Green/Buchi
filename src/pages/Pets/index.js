@@ -48,7 +48,7 @@ const Index = () => {
           <FilterBar />
           <Box minHeight={380} sx={{ mt: 2, width: '100%',backgroundColor: '#FFF8DC'}}>
                
-                <PetList pets={testData}/>    
+                <PetList />    
           </Box>
         </div>
     );

@@ -25,7 +25,6 @@ function FilterBar(props) {
     const [gender, setGender] = React.useState()
     const [size, setSize] = React.useState()
     const [include_petApiFilter, setInclude_petApiFilter] = React.useState(true)
-    const queryData = { type, good_with_children, age, gender, size}
     useEffect(() => {
         if(props.filter.type != null) setType((typeof props.filter.type !== 'string') ? props.filter.type.join() : props.filter.type)
         if(props.filter.good_with_children != null)setGood_with_children(props.filter.good_with_children)
@@ -45,7 +44,7 @@ function FilterBar(props) {
             props.loadPets(type , good_with_children, age, gender, size,include_petApiFilter)
 
         }
-        onload();
+       
         return (
             
      <Paper
@@ -85,7 +84,7 @@ function FilterBar(props) {
   
                 </Grid>
                 <Grid item xs={6} md={8}>
-                    <Button onClick={handleLook} sx={{ bgcolor: '#D2691E', float: 'right' }} variant="contained" size="large" startIcon={<SearchIcon />}>
+                    <Button onClick={handleLook} sx={{ mr:2,bgcolor: '#D2691E', float: 'right' }} variant="contained" size="large" startIcon={<SearchIcon />}>
                         Look
                     </Button>
 

@@ -53,7 +53,7 @@ const Index = () => {
           <Box>
                 {
                   cardData.map((card)=>{
-                    return <InfoPaper img={card.img} title={card.title} description={card.description} />
+                    return <InfoPaper key={card.title} img={card.img} title={card.title} description={card.description} />
                   })
                 }
           </Box>

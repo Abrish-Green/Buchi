@@ -1,27 +1,18 @@
 import React from 'react'
 import PetDetailPaper from '../../Components/PetDetail/DetailPaper';
+import { connect } from 'react-redux'
 
-const testData = {
-  "pet_id": 123,
-  "type":"Cat",
-  "gender":"male",
-  "size":"small",
-  "age":"baby",
-  "good_with_children":false,
-  "photos": {
-      "url": 	"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4it_Jqeo2FMOA-0f2yJk5uYJ3YTa1j7MVSA&usqp=CAU" 
-  }
-}
+const Index = ({data}) => {
 
-
-
-const Index = () => {
   return (
     <div className="App-Pet-Detail">
-        <PetDetailPaper data={testData} />
+        <PetDetailPaper data={data} />
         
     </div>
   )
 }
 
-export default Index;
+const mapStateToProps = state => ({
+  data: state.petDetail
+});
+export default connect(mapStateToProps, null)(Index);
