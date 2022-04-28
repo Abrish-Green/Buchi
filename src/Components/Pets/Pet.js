@@ -18,9 +18,16 @@ const Pet = ({ data , selectPet}) => {
 
     let photos = "";
     let loading = false
-    console.log(data.photos[0].url)
+    
     if(data.photos != null){
-        photos = (typeof data.photos !== 'object') ? data.photos.url : data.photos[0].url 
+        
+        if(data.photos[0]){
+          
+          photos = data.photos[0].url
+        }else{
+          photos = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
+        }
+         
     }else{
       photos = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
       loading = false
