@@ -60,7 +60,7 @@ const AddCustomer = (props) => {
 
   
   const handleSubmit = () => {
-    Adopt(name,phone,props.pet_id)
+    props.Adopt(name,phone,props.pet_id)
     setComplete(true)
     
     

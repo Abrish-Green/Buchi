@@ -4,6 +4,7 @@ import {getPetFinderToken} from '../../Middlewares/get_petfinder_token'
 const axios = require('axios')
 
 export const FetchFromLocalDb = async (type, good_with_children, age, gender, size) =>  {    
+try{
     return await  axios.get('http://209.97.133.58:8000/pet/get_pets', { 
         params: { 
             limit: 100,
@@ -15,18 +16,21 @@ export const FetchFromLocalDb = async (type, good_with_children, age, gender, si
          } 
     }).then(({data})=> data)
     .catch(e => {return e.message});
-    
+}catch(e){
+    //Not Working
+}
 }
 
 export const FetchFromPetFinderAPI = async (type, gender, size, age, good_with_children ) => {
 
+    try{
     let token = getPetFinderToken()
     let pets = []
     return getPetFinderToken().then(async (result) => {
         token = (result.access_token) 
         return await axios({
             method: 'get',
-            url: 'http://api.petfinder.com/v2/animals',
+            url: 'https://api.petfinder.com/v2/animals',
             data: {
                 type:type,
                 gender:gender,
@@ -37,6 +41,9 @@ export const FetchFromPetFinderAPI = async (type, gender, size, age, good_with_c
             headers: { Authorization: `Bearer ${token}` } 
           }).then(({data})=> data).catch(e => {return e.message});
     });
+}catch(e){
+    //Not Working
+}
     
 }
 
