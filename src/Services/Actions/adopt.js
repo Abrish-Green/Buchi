@@ -12,7 +12,7 @@ export const Adopt = async (name, phone,pet_id) => dispatch => {
                  let customer_id = null
                 await axios({
                     method: 'post',
-                    url: 'http://209.97.133.58:8000/customer/add_customer',
+                    url: 'https://209.97.133.58:8000/customer/add_customer',
                     data: {
                      "name": name,
                      "phone": phone
@@ -29,7 +29,7 @@ export const Adopt = async (name, phone,pet_id) => dispatch => {
                   //Adopt using customer Id
                   await axios({
                     method: 'post',
-                    url: 'http://209.97.133.58:8000/adoption/adopt',
+                    url: 'https://209.97.133.58:8000/adoption/adopt',
                     data: {
                      
                     customer_id: customer_id,

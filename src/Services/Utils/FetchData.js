@@ -4,7 +4,7 @@ import {getPetFinderToken} from '../../Middlewares/get_petfinder_token'
 const axios = require('axios')
 
 export const FetchFromLocalDb = async (type, good_with_children, age, gender, size) =>  {    
-    return await  axios.get('http://209.97.133.58:8000/pet/get_pets', { 
+    return await  axios.get('https://209.97.133.58:8000/pet/get_pets', { 
         params: { 
             limit: 100,
             type: type,
