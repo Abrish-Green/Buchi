@@ -1,16 +1,13 @@
 import { PET_ADOPT } from '../Constants'
 import axios from 'axios';
 
-export const Adopt = async (name, phone,pet_id) => dispatch => {
+export const Adopt = (name, phone,pet_id) => dispatch => {
     
+    console.log("_______Click________")
     try{
-    // Create Customer
-    
-         (
-             async()=>{
-                 //Create customer
-                 let customer_id = null
-                await axios({
+               let customer_id = null
+               const registerUser = async () => {
+                   await axios({
                     method: 'post',
                     url: 'http://209.97.133.58:8000/customer/add_customer',
                     data: {
@@ -18,38 +15,32 @@ export const Adopt = async (name, phone,pet_id) => dispatch => {
                      "phone": phone
          
                     }
-                  }).then((data)=>{
-                    customer_id = data.customer_id
-                    dispatch({
-                          type: PET_ADOPT,
-                          payload: {"success": true}
-                      })
-                  }).catch(e => {return e.message});
+                  }).then(async ({data})=>{
+                    var customer_id = data.customer_id
+                    await axios({
+                        method: 'post',
+                        url: 'http://209.97.133.58:8000/adoption/adopt',
+                        data: {
+                        customer_id: customer_id,
+                        pet_id: pet_id
+             
+                        }
+                      }).then(({data})=> {
+                          dispatch({
+                              type: PET_ADOPT,
+                              payload: {"success": true}
+                          })
+                      }).catch(e => {});
+                  }).catch(e => {});
 
+               }  
                   //Adopt using customer Id
-                  await axios({
-                    method: 'post',
-                    url: 'http://209.97.133.58:8000/adoption/adopt',
-                    data: {
-                     
-                    customer_id: customer_id,
-                    pet_id: pet_id
-         
-                    }
-                  }).then(({data})=> {
-                      dispatch({
-                          type: PET_ADOPT,
-                          payload: {"success": true}
-                      })
-                  }).catch(e => {return e.message});
-                  
-             }
-
-         )();
-      
-    //Adopt
+                
+            // Create Customer
+                registerUser()
+            
    }catch(e){
-       return (e.massage)
+       
    }
     
 }

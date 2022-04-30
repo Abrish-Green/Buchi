@@ -6,7 +6,7 @@ import Modal from '@mui/material/Modal';
 import { Grid, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-import {Adopt} from '../../Services/Actions/adopt'
+import { Adopt } from '../../Services/Actions/adopt'
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 const Congratulation = () => {
     return(
@@ -141,4 +141,4 @@ const mapStateToProps = state => ({
   adopt: state.adopt
 });
 
-export default connect(mapStateToProps, {Adopt})(AddCustomer)
+export default connect(mapStateToProps, { Adopt })(AddCustomer)
