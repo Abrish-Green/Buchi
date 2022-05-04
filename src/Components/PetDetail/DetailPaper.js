@@ -10,8 +10,8 @@ import AddCustomer from './AddCustomer';
 
 
 const PetDetailPaper = ({data}) => {
-    const [open, setOpen] = useState(false)
-
+    const [handleModal, setHandleModal] = useState(false)
+    
     let photos = "";
 
     if(data.photos != null){
@@ -25,9 +25,7 @@ const PetDetailPaper = ({data}) => {
     
     }
     
-    const handleModal = () => {
-      setOpen(true)
-    }
+  
 
    return(
      <React.Fragment>
@@ -40,12 +38,12 @@ const PetDetailPaper = ({data}) => {
                    <ImageViewer photos={photos} />
                    
                    
-                   <Box sx={{  m:{xs: 0, sm: 2, md: 5}, ml:{xs: 0, sm: 5, lg:15} }}>
+                   <Box sx={{  m:{xs: 0, sm: 2, md: 5}, ml:{xs: 0, sm: 5, lg:15}, width: '100%' }}>
                        <AnimalDescriptorChips data={data} />  
                    </Box>
                    <Grid item xs={12} justifyContent="center" alignItems="center">
                      <Grid item xs={7}>
-                     <IconButton  sx={{ float:'right' }} color="primary" aria-label="Adopt pet" onClick={handleModal}>
+                     <IconButton  sx={{ float:'right' }} color="primary" aria-label="Adopt pet" onClick={()=> setHandleModal(true)}>
                     
                      <FavoriteBorderIcon />
                            Adopt Me
@@ -63,7 +61,7 @@ const PetDetailPaper = ({data}) => {
          </Grid>
        
      </Paper>
-     <AddCustomer popup={open} pet_id={data.pet_id} />
+     <AddCustomer modalOpen={handleModal} handleModal={value => setHandleModal(value)} pet_id={data.pet_id} />
      </React.Fragment>
    )
 }

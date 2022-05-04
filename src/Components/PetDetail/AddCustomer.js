@@ -4,10 +4,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Grid, TextField } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { Adopt } from '../../Services/Actions/adopt'
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
+import { useNavigate } from 'react-router-dom'
 const Congratulation = () => {
     return(
         <Grid container>
@@ -49,27 +50,25 @@ const style = {
 };
 
 const AddCustomer = (props) => {
-  const [open, setOpen] = React.useState(props.popup);
+  const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [complete, setComplete] = React.useState(false)
   const [sending, setSending] = React.useState(false)
   const [name, setName] = React.useState('')
   const [phone, setPhone] = React.useState('')
-  
-
+  const navigate = useNavigate()
+  //props.handleModal(true)
   
   const handleSubmit = () => {
     props.Adopt(name,phone,props.pet_id)
     setComplete(true)
-    
-    
   }
   return (
     <div>
     
       <Modal
-        open={props.popup}
+        open={props.modalOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -123,7 +122,7 @@ const AddCustomer = (props) => {
                 <Button onClick={handleSubmit} variant="contained" sx={{  bgcolor: '#FAA455', width: '35%' }}>
                     Send
                 </Button>
-                <Button onClick={()=>{handleClose()}} variant="contained" sx={{ ml: 2, bgcolor: ' #cf142b', width: '35%' }}>
+                <Button onClick={()=> props.handleModal(false)} variant="contained" sx={{ ml: 2, bgcolor: ' #cf142b', width: '35%' }}>
                     Cancel
                 </Button>
                 </Grid>
