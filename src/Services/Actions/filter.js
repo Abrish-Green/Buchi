@@ -2,12 +2,12 @@ import { SELECT_ANIMAL_TYPE, SELECT_AGE, SELECT_GENDER, SELECT_IS_GOOD_WITH_CHIL
 import { FetchFromLocalDb, FetchFromPetFinderAPI } from '../Utils/FetchData'
 
 export const filterAnimalType = (data) => dispatch => {
-    
+
     dispatch({
         type: SELECT_ANIMAL_TYPE,
-        payload:  {
+        payload: {
             type: data,
-            },
+        },
     })
 }
 export const filterGoodWithChildren = (data) => dispatch => {
@@ -38,7 +38,7 @@ export const filterSize = (data) => dispatch => {
     dispatch({
         type: SELECT_SIZE,
         payload: {
-            size:data
+            size: data
         },
     })
 }
@@ -46,25 +46,26 @@ export const filterPetFinderAPI = (data) => dispatch => {
     dispatch({
         type: SELECT_PETFINDER_API,
         payload: {
-                include_petApiFilter:data
+            include_petApiFilter: data
         },
     })
 }
 
-export const loadPets = (type, good_with_children, age, gender, size,from_petFinderApi) => dispatch => {
+export const loadPets = (type='', good_with_children='', age='', gender='', size='', from_petFinderApi=true) => dispatch => {
     let pet = []
-    FetchFromPetFinderAPI(type, good_with_children, age, gender, size).then((res)=> {
-            pet = [...res.animals] 
-    })
+    FetchFromPetFinderAPI(type, good_with_children, age, gender, size).then((res) => {
+        pet = [...res.animals]
+        dispatch({
+            type: LOAD_PETS,
+            payload: pet
+        })
+    });
+
     
-    dispatch({
-        type: LOAD_PETS,
-        payload: pet
-    })
-        // FetchFromLocalDb(type, good_with_children, age, gender, size ).then((res)=> {
-        //     pet = [...pet,...res.pets]
-            
-        // })
-        
+    // FetchFromLocalDb(type, good_with_children, age, gender, size ).then((res)=> {
+    //     pet = [...pet,...res.pets]
+
+    // })
+
 }
 

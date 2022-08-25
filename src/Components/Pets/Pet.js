@@ -15,7 +15,6 @@ const LoadingCard = () => (
     )
       
 const Pet = ({ data , selectPet}) => {
-
     let photos = "";
     let loading = false
     
@@ -23,7 +22,7 @@ const Pet = ({ data , selectPet}) => {
         
         if(data.photos[0]){
           
-          photos = data.photos[0].url
+          photos = data.photos[0].small || data.photos[0].small
         }else{
           photos = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
         }
@@ -39,7 +38,8 @@ const Pet = ({ data , selectPet}) => {
     }
     
    
-    const detailLink = `/pet/${data.pet_id}`
+  const detailLink = `/pet/${data.id}`
+    if(!data.photos[0]) return null
     return(
       <React.Fragment>
        {(loading) ?
@@ -51,7 +51,7 @@ const Pet = ({ data , selectPet}) => {
            elevation={4}> 
            <Link onClick={handleSelect} to={detailLink}>
            <img
-             style={{  height: '70%', width: '100%' }}
+             style={{  height: '70%', width: '100%', objectPosition: 'cover' }}
              src={photos}
              onError={(event) => {
               event.target.onerror = "";

@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export const Adopt = (name, phone,pet_id) => dispatch => {
     
-    console.log("_______Click________")
     try{
                let customer_id = null
                const registerUser = async () => {

@@ -13,12 +13,11 @@ const PetDetailPaper = ({data}) => {
     const [handleModal, setHandleModal] = useState(false)
     
     let photos = "";
-
     if(data.photos != null){
-      if(data.photos.length > 0)  {
-        photos = data.photos
+      if(data?.photos?.length > 0)  {
+        photos =  data?.photos
       }else{
-        photos = {url:"https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"}
+        photos = data?.photos
       }
     }else{
       photos = {url:"https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"}

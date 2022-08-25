@@ -24,7 +24,7 @@ const MultipleImage = ({photos}) =>{
                 photos && 
 
                 photos.map((photo)=>{
-                    return(<img style={{  height: '50vh', width: '100%' }} alt="Image not avaliable" key={photo.url} src={photo.url} onError={(event) => {event.target.onerror = "";event.target.src = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png";return true}} />)
+                    return (<img key={photo?.id } style={{  height: '50vh', width: '100%' }} alt="Image not avaliable" key={photo.url} src={photo.small} onError={(event) => {event.target.onerror = "";event.target.src = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png";return true}} />)
 
                 }) 
             }
@@ -35,7 +35,7 @@ const ImageViewer = (props) => {
     return (
         <React.Fragment>
 
-            {  (typeof props.photos.url === 'string' ) ?  <SingleImage url={props.photos.url}/> : <MultipleImage photos={props.photos}/> }
+            {  (typeof props.photos.url === 'string' ) ?  <SingleImage url={props?.photos[0]?.small}/> : <MultipleImage photos={props.photos}/> }
             
         
         </React.Fragment>

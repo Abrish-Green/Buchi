@@ -22,10 +22,11 @@ try{
 }
 
 export const FetchFromPetFinderAPI = async (type, gender, size, age, good_with_children ) => {
+    let pets = []
 
     try{
-    let token = getPetFinderToken()
-    let pets = []
+        let token = getPetFinderToken()
+        
     return getPetFinderToken().then(async (result) => {
         token = (result.access_token) 
         return await axios({
@@ -38,12 +39,22 @@ export const FetchFromPetFinderAPI = async (type, gender, size, age, good_with_c
                 age:age,
                 good_with_children:good_with_children
             },
-            headers: { Authorization: `Bearer ${token}` } 
-          }).then(({data})=> data).catch(e => {return e.message});
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Access-Control-Allow-Credentials' : true,
+                'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Methods':'GET',
+                'Access-Control-Allow-Headers':'application/json',
+            } 
+        })
+            .then(({ data }) => pets = data)
+            .catch(e => { return e.message });
     });
+        
 }catch(e){
     //Not Working
 }
-    
+            
+    return pets
 }
 

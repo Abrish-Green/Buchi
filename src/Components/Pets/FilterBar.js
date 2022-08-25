@@ -45,6 +45,9 @@ function FilterBar(props) {
 
         }
        
+        React.useEffect(()=>{
+            handleLook()
+        },[])
         return (
             
      <Paper

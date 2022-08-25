@@ -17,7 +17,7 @@ const PetList = (props) => {
                   })
                 }
                { (props.pets &&
-                 props.pets.length == 0) && 
+                 props.pets.length === 0) && 
                  <NotFound />
                }
                 
