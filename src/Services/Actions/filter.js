@@ -53,15 +53,14 @@ export const filterPetFinderAPI = (data) => dispatch => {
 
 export const loadPets = (type, good_with_children, age, gender, size,from_petFinderApi) => dispatch => {
     let pet = []
-    if(from_petFinderApi){
-        FetchFromPetFinderAPI(type, good_with_children, age, gender, size).then((res)=> {
+    FetchFromPetFinderAPI(type, good_with_children, age, gender, size).then((res)=> {
             pet = [...res.animals] 
-        })
-    }
-        dispatch({
-                    type:LOAD_PETS,
-                    payload: pet
-                })
+    })
+    
+    dispatch({
+        type: LOAD_PETS,
+        payload: pet
+    })
         // FetchFromLocalDb(type, good_with_children, age, gender, size ).then((res)=> {
         //     pet = [...pet,...res.pets]
             
