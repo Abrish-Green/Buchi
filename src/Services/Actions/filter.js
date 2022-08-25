@@ -58,13 +58,14 @@ export const loadPets = (type, good_with_children, age, gender, size,from_petFin
             pet = [...res.animals] 
         })
     }
-        FetchFromLocalDb(type, good_with_children, age, gender, size ).then((res)=> {
-            pet = [...pet,...res.pets]
-            dispatch({
-                type:LOAD_PETS,
-                payload: pet
-            })
-        })
+        dispatch({
+                    type:LOAD_PETS,
+                    payload: pet
+                })
+        // FetchFromLocalDb(type, good_with_children, age, gender, size ).then((res)=> {
+        //     pet = [...pet,...res.pets]
+            
+        // })
         
 }
 
