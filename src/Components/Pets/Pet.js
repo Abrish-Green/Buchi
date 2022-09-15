@@ -53,6 +53,12 @@ const Pet = ({ data , selectPet}) => {
            <img
              style={{  height: '70%', width: '100%', objectPosition: 'cover' }}
              src={photos}
+            sx={{
+                      height: 233,
+                      width: 350,
+                      maxHeight: { xs: 233, md: 167 },
+                      maxWidth: { xs: 350, md: 250 },
+                    }}
              onError={(event) => {
               event.target.onerror = "";
               event.target.src = "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png"
